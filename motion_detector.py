@@ -9,6 +9,9 @@ import datetime
 import imutils
 import time
 import cv2
+from twilio.rest import Client
+
+client = Client("AC258559ed211eb527b22483ed994f022d","949b72a80f1ea36cfe851a07ba5f8e42")
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -83,8 +86,10 @@ while True:
 
 	# show the frame and record if the user presses a key
 	if text == "Occupied":
-                print("ITS OCCUPIED, THIS IS WHERE THE FUCNITON CALL WILL BE")
-                break
+		print("Face detected. Sending SMS!!!")
+		client.messages.create(to="+16479073487", from_="+12109636780", body="YOOOO")
+		break
+            # break
 	key = cv2.waitKey(1) & 0xFF
 
 	# if the `q` key is pressed, break from the lop
