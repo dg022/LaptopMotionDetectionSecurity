@@ -81,7 +81,10 @@ while True:
 	cv2.putText(frame, datetime.datetime.now().strftime("%A %d %B %Y %I:%M:%S%p"),
 		(10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
 
-	
+	# show the frame and record if the user presses a key
+	if text == "Occupied":
+                print("ITS OCCUPIED, THIS IS WHERE THE FUCNITON CALL WILL BE")
+                break
 	key = cv2.waitKey(1) & 0xFF
 
 	# if the `q` key is pressed, break from the lop
